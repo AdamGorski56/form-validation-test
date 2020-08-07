@@ -2,6 +2,7 @@ document.getElementById('name').addEventListener('blur', validateName);
 document.getElementById('zip').addEventListener('blur', validateZip);
 document.getElementById('email').addEventListener('blur', validateEmail);
 document.getElementById('phone').addEventListener('blur', validatePhone);
+document.getElementById('btn').addEventListener('click', saveData);
 
 function validateName(){
     const name = document.getElementById('name');
@@ -16,7 +17,7 @@ function validateName(){
 
 function validateZip(){
     const zip = document.getElementById('zip');
-    const re = /^\w{3}[-]\w{3}$/;
+    const re = /^\w{3,4}[-]\w{3}$/;
     if(!re.test(zip.value)){
         zip.classList.add('is-invalid')
 
@@ -27,7 +28,7 @@ function validateZip(){
 
 function validateEmail(){
     const email = document.getElementById('email');
-    const re = /^\w{2,10}[@]\w{1,10}[.]\w{1,5}([.]\w{1,5})?$/;
+    const re = /^\w{2,20}[@]\w{1,10}[.]\w{1,5}([.]\w{1,5})?$/;
     if(!re.test(email.value)){
         email.classList.add('is-invalid')
 
@@ -45,4 +46,8 @@ function validatePhone(){
     } else {
         phone.classList.remove('is-invalid')
     }
+}
+
+function saveData(data) {
+    data.preventDefault();
 }
