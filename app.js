@@ -28,7 +28,7 @@ function validateZip(){
 
 function validateEmail(){
     const email = document.getElementById('email');
-    const re = /^\w{2,20}[@]\w{1,10}[.]\w{1,5}([.]\w{1,5})?$/;
+    const re = /^([\w\.\-])+[@]\w{1,10}[.]\w{1,5}([.]\w{1,5})?$/;
     if(!re.test(email.value)){
         email.classList.add('is-invalid')
 
@@ -39,7 +39,7 @@ function validateEmail(){
 
 function validatePhone(){
     const phone = document.getElementById('phone');
-    const re = /^[+]?(\d{2,3})?(\d{10})$/;
+    const re = /^\(?[+]?\d{2,3}\)?[\.\-\s]?\d{2}[\.\-\s]?\d{4}[\.\-\s]?\d{2}[\.\-\s]?\d{2}$/;
     if(!re.test(phone.value)){
         phone.classList.add('is-invalid')
 
